@@ -30,7 +30,7 @@ void setup() {
   dispH.setCursor(4,2);
   dispH.print("BytesH");
   dispH.drawCircle(47,15,5,1); // x,y,r,col
-  dispH.drawRect(4,11,35,2,1); // y,x,w,h,col
+  dispH.drawRect(4,11,35,2,1); // x,y,w,h,col
   // Output the framebuffer via Serial
   dispH.displaySerial();
 
@@ -40,7 +40,7 @@ void setup() {
   dispV.setCursor(4,2);
   dispV.print("BytesV");
   dispV.drawCircle(47,15,5,1); // x,y,r,col
-  dispV.drawRect(4,11,35,2,1); // y,x,w,h,col
+  dispV.drawRect(4,11,35,2,1); // x,y,w,h,col
   dispV.displaySerial();
 
   // custom display
