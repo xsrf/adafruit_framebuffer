@@ -24,6 +24,7 @@
 class Adafruit_FramebufferDisplayH : public Adafruit_GFX {
  public:
   Adafruit_FramebufferDisplayH(uint16_t width, uint16_t height);  
+  Adafruit_FramebufferDisplayH(uint16_t width, uint16_t height, uint8_t * buf);
   void clearDisplay(void);
   void displaySerial();  
   void drawPixel(int16_t x, int16_t y, uint16_t color);
@@ -43,6 +44,15 @@ class Adafruit_FramebufferDisplayV : public Adafruit_GFX {
   int16_t _PixelX, _PixelY, _BytesX, _BytesY, bufferSize;  
 };
 
+
+Adafruit_FramebufferDisplayH::Adafruit_FramebufferDisplayH(uint16_t width, uint16_t height, uint8_t * buf) : Adafruit_GFX(width, height) {
+  _PixelX = width;
+  _PixelY = height;
+  _BytesX = (width+7) >> 3; // ceil(width/8)
+  _BytesY = height;
+  bufferSize = _BytesX*_BytesY;
+  buffer = buf;
+}
 
 Adafruit_FramebufferDisplayH::Adafruit_FramebufferDisplayH(uint16_t width, uint16_t height) : Adafruit_GFX(width, height) {
   _PixelX = width;
